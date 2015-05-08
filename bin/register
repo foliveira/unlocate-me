@@ -14,6 +14,14 @@ unlocator.register(function(err, apikey) {
   if(err) {
     console.error(err)
   } else {
-    console.log('Your API key: %s', apikey)
+    console.log('Your API key is: %s', apikey)
+    _warnDNS()
   }
 })
+
+function _warnDNS() {
+  console.log('If you haven\'t, please update your ' +
+                'connection DNS servers to: %s and %s',
+                unlocator.dns[0],
+                unlocator.dns[1])
+}

@@ -7,7 +7,7 @@ var metadata = require('../package')
 
 program
   .version(metadata.version)
-  .command('register [service]', 'register with a service')
-  .command('update [service]', 'update your info with a service')
+  .command('register', 'Register with a service')
+  .command('update <apikey>', 'Update your info with a service')
 
 program.parse(process.argv)
