@@ -2,6 +2,7 @@
 
 'use strict'
 
+var colors = require('colors')
 var program = require('commander')
 var metadata = require('../package')
 var unlocator = require('../src/unlocator')
@@ -11,17 +12,19 @@ program
   .parse(process.argv)
 
 unlocator.register(function(err, apikey) {
-  if(err) {
-    console.error(err)
+  if (err) {
+    console.error(err.red.bold)
   } else {
-    console.log('Your API key is: %s', apikey)
+    console.log('Your API key is: %s'.green, apikey.red.bold)
     _warnDNS()
   }
 })
 
 function _warnDNS() {
-  console.log('If you haven\'t, please update your ' +
-                'connection DNS servers to: %s and %s',
-                unlocator.dns[0],
-                unlocator.dns[1])
+  console.log('If you haven\'t, please update your '.green +
+                'connection DNS servers to: %s'.green +
+                ' and/or '.green +
+                '%s'.green,
+                unlocator.dns[0].red.bold,
+                unlocator.dns[1].red.bold)
 }

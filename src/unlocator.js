@@ -37,8 +37,8 @@ function _register(callback) {
 }
 
 function _update(apiKey, callback) {
-  if (apiKey == null) {
-    callback('No apikey provided', null)
+  if (!apiKey) {
+    callback(new Error('No API Key provided'), null)
   }
 
   request('http://unlo.it/' + apiKey, function(err, res, body) {

@@ -2,6 +2,7 @@
 
 'use strict'
 
+var colors = require('colors')
 var program = require('commander')
 var metadata = require('../package.json')
 var unlocator = require('../src/unlocator')
@@ -11,10 +12,10 @@ program
   .arguments('[apikey]')
   .action(function(apikey) {
     unlocator.update(apikey, function(err, res) {
-      if(err) {
+      if (err) {
         console.error(err)
       } else {
-        console.log(res)
+        console.log(res.green.bold)
       }
     })
   })

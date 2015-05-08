@@ -2,6 +2,7 @@
 
 'use strict'
 
+var colors = require('colors')
 var program = require('commander')
 var metadata = require('../package')
 
