@@ -2,7 +2,7 @@
 
 var async = require('async')
 var Chance = require('chance')
-var request = require('request').defaults({jar: true})
+var request = require('request')
 
 function _register(callback) {
   var chance = new Chance()
@@ -19,13 +19,14 @@ function _register(callback) {
     function(cb) {
       var options = {
         url:'https://unlocator.com/account/signup/index',
-        form: form
+        form: form,
+        jar: true
       }
 
       request.post(options, cb)
     },
     function(res, body, cb) {
-      request(res.headers.location, cb)
+      request(res.headers.location, {jar: true}, cb)
     },
     function(res, body, cb) {
       var apiKey = body.match(/http:\/\/unlo\.it\/(\w*)/)
@@ -35,12 +36,14 @@ function _register(callback) {
   ], callback)
 }
 
-function _update(apikey) {
+function _update(apiKey, callback) {
   if (apiKey == null) {
-    return
+    callback('No apikey provided', null)
   }
 
-  request('http://unlo.it/' + apikey)
+  request('http://unlo.it/' + apiKey, function(err, res, body) {
+    callback(err, body)
+  })
 }
 
 module.exports = exports = {

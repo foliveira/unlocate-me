@@ -3,10 +3,11 @@
 'use strict'
 
 var program = require('commander')
-var metadata = require('../package.json')
+var metadata = require('../package')
 
 program
   .version(metadata.version)
   .command('register [service]', 'register with a service')
   .command('update [service]', 'update your info with a service')
-  .parse(process.argv)
+
+program.parse(process.argv)

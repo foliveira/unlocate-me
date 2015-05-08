@@ -2,4 +2,21 @@
 
 'use strict'
 
-console.log('updated')
+var program = require('commander')
+var metadata = require('../package.json')
+var unlocator = require('../src/unlocator')
+
+program
+  .version(metadata.version)
+  .arguments('[apikey]')
+  .action(function(apikey) {
+    unlocator.update(apikey, function(err, res) {
+      if(err) {
+        console.error(err)
+      } else {
+        console.log(res)
+      }
+    })
+  })
+
+program.parse(process.argv)

@@ -2,4 +2,18 @@
 
 'use strict'
 
-console.log('register')
+var program = require('commander')
+var metadata = require('../package')
+var unlocator = require('../src/unlocator')
+
+program
+  .version(metadata.version)
+  .parse(process.argv)
+
+unlocator.register(function(err, apikey) {
+  if(err) {
+    console.error(err)
+  } else {
+    console.log('Your API key: %s', apikey)
+  }
+})
