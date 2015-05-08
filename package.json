@@ -1,0 +1,40 @@
+{
+  "name": "unlocate-me",
+  "bin": {
+    "unlocate": "bin/unlocate",
+    "unlocate-register": "bin/register",
+    "unlocate-update": "bin/updater"
+  },
+  "version": "0.0.0",
+  "description": "Use a DNS geo-masking service from the terminal",
+  "scripts": {
+    "codestyle": "jscs -p google src/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/foliveira/unlocate-me"
+  },
+  "keywords": [
+    "unlocate",
+    "dns",
+    "masking"
+  ],
+  "author": "Fábio Oliveira <fabio.an.oliveira@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/foliveira/unlocate-me/issues"
+  },
+  "homepage": "https://github.com/foliveira/unlocate-me",
+  "dependencies": {
+    "async": "^0.9.0",
+    "chance": "^0.7.4",
+    "commander": "^2.8.1",
+    "request": "^2.55.0"
+  },
+  "devDependencies": {
+    "pre-commit": "^1.0.7"
+  },
+  "pre-commit": [
+    "codestyle"
+  ]
+}
