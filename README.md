@@ -2,8 +2,6 @@
 
 [![npm package](https://nodei.co/npm/unlocate-me.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/unlocate-me/)
 
-[![Dependency Status](https://img.shields.io/david/foliveira/unlocate-me.svg?style=flat-square)](https://david-dm.org/foliveira/unlocate-me)
-
 `unlocate-me` is a tool to use a DNS masking service straight from the terminal.
 
 #### Heads up warning!
