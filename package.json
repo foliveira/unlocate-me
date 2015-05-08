@@ -5,7 +5,7 @@
     "unlocate-register": "bin/register",
     "unlocate-update": "bin/updater"
   },
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Use a DNS geo-masking service from the terminal",
   "scripts": {
     "codestyle": "jscs -p google src/*.js"
